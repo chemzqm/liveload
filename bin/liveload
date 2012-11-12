@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+var connect = require('connect')
+    , http = require('http')
+    , io = require('socket.io')
+    , liveload = require('../');
+
+var root = process.cwd();
+
+var app = connect()
+var server = http.createServer(app);
+    io = io.listen(server);
+app.use(connect.cookieParser())
+  .use(connect.session({secret:"SSSeee!"}))
+  .use(liveload({io:io, root:root,socket:true}))
+  //serve static files
+  .use(connect['static'](root))
+  .use(connect.directory(root));
+
+server.listen(3000);
+
+console.log('server listening at 3000');
+
+// vim:ft=javascript
