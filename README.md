@@ -6,13 +6,13 @@ A middle ware of connect/express which tells the browser to reload page/css when
 
 via npm:
   
-  $ npm install -g liveload
+    $ npm install -g liveload
   
 ##Use as static server
 
 Goto the directory you want to serve, and type:
   
-  $ liveload
+    $ liveload
   
 Open your browser and then edit the html/js/css file as you like, then you can see the magic.
 
