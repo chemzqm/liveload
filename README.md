@@ -22,7 +22,7 @@ Open your browser and then edit the html/js/css file as you like, then you can s
 var connect = require('connect')
     , http = require('http')
     , io = require('socket.io')
-    , liveload = require('../');
+    , liveload = require('liveload');
 var app = connect()
 var server = http.createServer(app);
     io = io.listen(server);
