@@ -31,6 +31,6 @@ app.use(liveload({io:io, root:root, socket:true}));
 
 ##options
   * `io` socket.io instance
-  * `root` root directory for watching files
+  * `root` root directory for watching files, could be array of directory
   * `socket` whether to include socket.io client JS file automatically for html content
   * `ext` additional extensions(other than js, html, css) for file watching
