@@ -34,3 +34,11 @@ app.use(liveload({io:io, root:root, socket:true}));
   * `root` root directory for watching files, could be array of directory
   * `socket` whether to include socket.io client JS file automatically for html content
   * `ext` additional extensions(other than js, html, css) for file watching
+
+##Reset maxinum number for file watch
+  
+  Nodejs would report an error if there's too many files for watching due to system limitation, on Linux you can change that by adding `fs.inotify.max_user_watches = 524288` to the file `etc/sysctl.conf` and restart the process by command:
+
+  ```bash
+  sudo sysctl -p
+  ```
