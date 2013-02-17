@@ -6,12 +6,12 @@ var connect = require('connect')
 
 var root = process.cwd();
 
-var app = connect()
+var app = connect();
 var server = http.createServer(app);
     io = io.listen(server);
 app.use(connect.cookieParser())
   .use(connect.session({secret:"SSSeee!"}))
-  .use(liveload({io:io, root:root,socket:true}))
+  .use(liveload({io:io, root:root,socket:true, excludes:/^node_modules$/}))
   //serve static files
   .use(connect['static'](root))
   .use(connect.directory(root));
