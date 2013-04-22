@@ -1,23 +1,26 @@
 {
-    "name":"liveload",
-    "version":"0.1.2",
-    "description":"A middle ware of connect/express which tells the browser to reload page/css when there's server side change without having any change in the client file.",
-    "homepage":"https://github.com/chemzqm/liveload",
-    "keywords":["reload","livereload","autoreload"],
-    "author": "qiming zhao <chemzqm@gmail.com>",
-    "repository":{
-        "type":"git",
-        "url":"git@github.com:chemzqm/liveload.git"
-    },
-    "engines":{
-        "node": ">=0.6.0"
-    },
-    "dependencies":{
-        "connect": "~2.7.2",
-        "socket.io": "~0.9.13",
-        "uglify-js": "~2.2.3"
-    },
-    "bin":{
-        "liveload":"./bin/liveload"
-    }
+  "name": "liveload",
+  "version": "0.2.0",
+  "description": "A server which detect the file change and reload the resource at client side automatically",
+  "homepage": "https://github.com/chemzqm/liveload",
+  "keywords": [
+    "reload",
+    "livereload",
+    "autoreload"
+  ],
+  "author": "qiming zhao <chemzqm@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:chemzqm/liveload.git"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "dependencies": {
+    "connect": "~2.7.2",
+    "tiny-lr": "~0.0.4"
+  },
+  "bin": {
+    "liveload": "./bin/liveload"
+  }
 }

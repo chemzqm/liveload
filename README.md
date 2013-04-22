@@ -1,6 +1,11 @@
 #liveload
 
-A middle ware of connect/express which tells the browser to reload page/css when there's server side change without having any change in the client file.
+A server which detect the file change and reload the resource at client side automatically, 
+could be also used as a connect middleware for file watching and livereload server with snippet
+contains script tag injected on the fly.
+
+[About the snippet of script tag](http://feedback.livereload.com/knowledgebase/articles/86180-how-do-i-add-the-script-tag-manually-)
+
 
 ##Installation
 
@@ -14,31 +19,36 @@ Goto the directory you want to serve, and type:
   
     $ liveload
   
-Open your browser and then edit the html/js/css file as you like, then you can see the magic.
+Open your browser and then edit the html/js/css file as you like, and enjoy live edit of css/js/html files.
 
 ##Use as connect middleware
 
 ```js
 var connect = require('connect')
     , http = require('http')
-    , io = require('socket.io')
     , liveload = require('liveload');
-var app = connect()
-var server = http.createServer(app);
-    io = io.listen(server);
-app.use(liveload({io:io, root:root, socket:true}));
+var app = connect();
+var root = process.cwd();
+
+app.use(liveload({root:root, files:/.(js|css|html)$/,excludes:/^node_modules$/}))
+  .use(connect['static'](root))
+  .use(connect.directory(root));
+
+var server = http.createServer(app).listen(3000);
 ```
 
-##options
-  * `io` socket.io instance
-  * `root` root directory for watching files, could be array of directory
-  * `socket` whether to include socket.io client JS file automatically for html content
-  * `ext` additional extensions(other than js, html, css) for file watching
+**options**
+
+  * `root` root directory for watching files, could be array of directory path, this is required
+  * `files` regexp for watching files eg: /\.(html|css|js)/
+  * `exclude` excludes regex used for exclude folders
+  * `inject` boolean value indicate whether to inject the script element on the fly, default true
+  * `port` port number for the livereload server, default 35927
 
 ##Reset maxinum number for file watch
   
   Nodejs would report an error if there's too many files for watching due to system limitation, on Linux you can change that by adding `fs.inotify.max_user_watches = 524288` to the file `etc/sysctl.conf` and restart the process by command:
 
-  ```bash
-  sudo sysctl -p
-  ```
+```bash
+sudo sysctl -p
+```
