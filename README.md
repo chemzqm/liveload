@@ -34,7 +34,7 @@ app.use(liveload({root:root, files:/.(js|css|html)$/,excludes:/^node_modules$/})
   .use(connect['static'](root))
   .use(connect.directory(root));
 
-var server = http.createServer(app).listen(3000);
+http.createServer(app).listen(3000);
 ```
 
 **options**
