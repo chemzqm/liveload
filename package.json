@@ -8,7 +8,7 @@
     "livereload",
     "autoreload"
   ],
-  "author": "qiming zhao <chemzqm@gmail.com>",
+  "author": "Qiming Zhao <chemzqm@gmail.com>",
   "repository": {
     "type": "git",
     "url": "git@github.com:chemzqm/liveload.git"
