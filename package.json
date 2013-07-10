@@ -1,6 +1,6 @@
 {
   "name": "liveload",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A server which detect the file change and reload the resource at client side automatically",
   "homepage": "https://github.com/chemzqm/liveload",
   "keywords": [
