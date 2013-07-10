@@ -1,6 +1,6 @@
 {
   "name": "liveload",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A server which detect the file change and reload the resource at client side automatically",
   "homepage": "https://github.com/chemzqm/liveload",
   "keywords": [
@@ -18,7 +18,8 @@
   },
   "dependencies": {
     "connect": "~2.7.2",
-    "tiny-lr": "~0.0.4"
+    "tiny-lr": "~0.0.4",
+    "growl": "~1.7.0"
   },
   "bin": {
     "liveload": "./bin/liveload"

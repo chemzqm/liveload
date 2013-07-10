@@ -13,6 +13,11 @@ via npm:
   
     $ npm install -g liveload
   
+
+##File change notification
+
+Need to install some sofeware to support the notification, refer to <https://github.com/visionmedia/node-growl>
+
 ##Use as static server
 
 Goto the directory you want to serve, and type:
