@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 var connect = require('connect')
+    , open = require ('open')
     , http = require('http')
     , liveload = require('../');
 
@@ -8,12 +9,14 @@ var root = process.cwd();
 var app = connect();
 app.use(connect.cookieParser())
   .use(connect.session({secret:"SSSeee!"}))
-  .use(liveload({root:root, files:/.(js|css|html)$/,excludes:/^node_modules$/}))
+  .use(liveload({root:root, files:/.(js|css|html)$/,excludes:/^node_modules|components$/}))
   //serve static files
   .use(connect['static'](root))
   .use(connect.directory(root));
 
-var server = http.createServer(app).listen(3000);
+var server = http.createServer(app).listen(3000, function() {
+  open("http://localhost:3000/");
+});
 
 console.log('server listening at 3000');
 
