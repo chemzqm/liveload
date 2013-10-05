@@ -24,7 +24,7 @@ Goto the directory you want to serve, and type:
   
     $ liveload
   
-Open your browser and then edit the html/js/css file as you like, and enjoy live edit of css/js/html files.
+And enjoy live edit of css/js/html files.
 
 ##Use as connect middleware
 
@@ -44,11 +44,11 @@ http.createServer(app).listen(3000);
 
 **options**
 
-  * `root` root directory for watching files, could be array of directory path, this is required
-  * `files` regexp for watching files eg: /\.(html|css|js)/
+  * `root` root directory for watching files, could be array of directory path, this is **required**
+  * `files` regexp for watching files eg: `/\.(html|css|js)$/`
   * `exclude` excludes regex used for exclude folders
-  * `inject` boolean value indicate whether to inject the script element on the fly, default true
-  * `port` port number for the livereload server, default 35927
+  * `inject` boolean value indicate whether to inject the script element on the fly, default `true`
+  * `port` port number for the livereload server, default `35927`
 
 ##Reset maxinum number for file watch
   
