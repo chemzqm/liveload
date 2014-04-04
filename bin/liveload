@@ -7,9 +7,7 @@ var connect = require('connect')
 var root = process.cwd();
 
 var app = connect();
-app.use(connect.cookieParser())
-  .use(connect.session({secret:"SSSeee!"}))
-  .use(liveload({root:root, files:/.(js|css|html)$/,excludes:/^node_modules|components$/}))
+app.use(liveload({root:root, files:/.(js|css|html)$/,excludes:/^node_modules|components$/}))
   //serve static files
   .use(connect['static'](root))
   .use(connect.directory(root));
